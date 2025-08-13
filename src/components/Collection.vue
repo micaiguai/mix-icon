@@ -42,7 +42,7 @@ getMeta(props.id)
 </script>
 
 <template>
-  <div class="min-w-60">
+  <div class="min-w-72">
     {{ props.id }}
     <div class="text-xs mb-2">
       {{ meta?.license?.title }}

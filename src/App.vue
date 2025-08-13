@@ -5,13 +5,13 @@ import Result from './components/Result.vue'
 
 <template>
   <div class="text-gray-600 p-2 p-2 flex gap-4 of-hidden h-dvh">
-    <div class="p-2 rounded h-full min-w-80 ring ring-gray-300 of-x-hidden of-y-scroll">
+    <div class="p-2 rounded h-full max-w-80 ring ring-gray-300 of-x-hidden of-y-scroll">
       <Collections :index="0" />
     </div>
-    <div class="p-2 rounded h-full min-w-80 ring ring-gray-300 of-x-hidden of-y-scroll">
+    <div class="p-2 rounded h-full max-w-80 ring ring-gray-300 of-x-hidden of-y-scroll">
       <Collections :index="1" />
     </div>
-    <div class="p-2 rounded h-full min-w-80 ring ring-gray-300 of-x-hidden of-y-scroll">
+    <div class="p-2 rounded flex-1 h-full min-w-80 ring ring-gray-300 of-x-hidden of-y-scroll">
       <Result />
     </div>
   </div>

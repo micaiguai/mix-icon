@@ -4,7 +4,6 @@ import App from './App.vue'
 import 'virtual:uno.css'
 import '@unocss/reset/sanitize/sanitize.css'
 import '@unocss/reset/sanitize/assets.css'
-import 'vue-color/style.css'
 
 const app = createApp(App)
 const pinia = createPinia()

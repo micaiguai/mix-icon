@@ -2,16 +2,17 @@
 import { Icon } from '@iconify/vue'
 import { computed, ref } from 'vue'
 import { useIconStore } from '../stores/iconStore'
+import IconPanel from './IconPanel.vue'
 
 const iconStore = useIconStore()
 
 const color = ref<[string, string]>([
-  '',
-  '',
+  'black',
+  'blue',
 ])
-const classes = ref<[string, string]>([
-  'absolute left-0 top-0 text-60 text-black',
-  'absolute left-36 top-36 text-20 text-blue-500',
+const classes = computed<[string, string]>(() => [
+  `absolute left-0 top-0 text-60 text-[${color.value[0]}]`,
+  `absolute left-36 top-36 text-20 text-[${color.value[1]}]`,
 ])
 
 const icons = computed(() => {
@@ -27,21 +28,11 @@ const icons = computed(() => {
     <div class="">
       Result
     </div>
-    <div class="">
-      First Icon: <Icon :icon="icons[0]" />
-      license: {{ iconStore.firstIcon?.meta.license?.title }}
+    <div class="mb-2 flex gap-4">
+      <IconPanel v-if="iconStore.firstIcon" :icon="iconStore.firstIcon" />
+      <IconPanel v-if="iconStore.secondIcon" :icon="iconStore.secondIcon" />
     </div>
-    <div class="">
-      First Color: <input class="rounded ring ring-gray-300" type="text">
-    </div>
-    <div class="">
-      Second Icon: <Icon :icon="icons[1]" />
-      license: {{ iconStore.secondIcon?.meta.license?.title }}
-    </div>
-    <div class="">
-      Second Color: <input class="rounded ring ring-gray-300" type="text">
-    </div>
-    <div class="size-60 ring ring-gray-300 relative">
+    <div class="rounded size-60 ring ring-gray-300 relative">
       <Icon :class="classes[0]" :color="color[0]" :icon="icons[0]" />
       <Icon :class="classes[1]" :color="color[1]" :icon="icons[1]" />
     </div>
