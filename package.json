@@ -21,6 +21,7 @@
     "@antfu/eslint-config": "^5.0.0",
     "@iconify/json": "^2.2.369",
     "@iconify/vue": "^5.0.0",
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^24.2.1",
     "@unocss/eslint-plugin": "^66.3.3",
     "@unocss/preset-icons": "^66.3.3",
