@@ -8,6 +8,7 @@ import Icons from './Icons.vue'
 const props = defineProps<{
   id: string
   index: number
+  search: string
 }>()
 
 const collection = ref<IconifyJSON>()
@@ -31,10 +32,16 @@ const icons = computed(() => {
   if (!meta.value) {
     return
   }
-  return meta.value.icons.map(icon => ({
-    icon,
-    meta: meta.value,
-  }))
+  return meta.value.icons
+    .map(icon => ({
+      icon,
+      meta: meta.value,
+    }))
+    .filter((icon) => {
+      if (!props.search)
+        return true
+      return icon.icon.includes(props.search)
+    })
 })
 
 getCollectionInfo(props.id)

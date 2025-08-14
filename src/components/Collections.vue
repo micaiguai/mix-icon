@@ -65,7 +65,7 @@ function setActive(id: string) {
     >
       <Collection :id="collection.id" @click="setActive(collection.id)" />
     </div>
-    <CollectionDetail v-if="state === 'detail' && !!activeId" :id="activeId" :index="props.index" class="" />
+    <CollectionDetail v-if="state === 'detail' && !!activeId" :id="activeId" :search="search" :index="props.index" class="" />
     <Icons v-if="state === 'search'" :index="props.index" :icons="icons" />
   </div>
 </template>
