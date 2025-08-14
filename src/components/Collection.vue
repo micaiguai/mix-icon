@@ -4,6 +4,7 @@ import type { CollectionMeta } from '../types'
 import { Icon } from '@iconify/vue'
 import { addCollection } from 'iconify-icon'
 import { computed, ref } from 'vue'
+import { getBase } from '../../scripts/getBase'
 import { useIconStore } from '../stores/iconStore'
 
 const props = defineProps<{
@@ -21,7 +22,7 @@ const nineIcons = computed(() => {
 })
 
 async function getCollectionInfo(id: string) {
-  collection.value = await fetch(`/collections/${id}.json`)
+  collection.value = await fetch(`${getBase()}/collections/${id}.json`)
     .then(res => res.json())
   if (!collection.value) {
     return
@@ -30,7 +31,7 @@ async function getCollectionInfo(id: string) {
 }
 
 async function getMeta(id: string) {
-  meta.value = await fetch(`/collections/${id}-meta.json`)
+  meta.value = await fetch(`${getBase()}/collections/${id}-meta.json`)
     .then(res => res.json())
   if (!meta.value)
     return
