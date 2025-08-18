@@ -9,7 +9,7 @@ const iconStore = useIconStore()
 
 const color = ref<[string, string]>([
   'black',
-  'blue',
+  '#317AC6',
 ])
 const classes = computed<[string, string]>(() => [
   `absolute left-0 top-0 text-60 text-[${color.value[0]}]`,
