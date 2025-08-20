@@ -28,7 +28,9 @@ const iconRef = ref<HTMLDivElement | null>(null)
 async function downloadPng() {
   if (!iconRef.value)
     return
-  const result = await snapdom(iconRef.value)
+  const result = await snapdom(iconRef.value, {
+    filename: 'icon.png',
+  })
   result.download()
 }
 </script>
@@ -43,7 +45,7 @@ async function downloadPng() {
       <div class="text-sm mb-2">
         Result
       </div>
-      <div class="w-fit ring">
+      <div class="w-fit ring ring-gray-300">
         <div ref="iconRef" class="size-60 relative">
           <Icon :class="classes[0]" :color="color[0]" :icon="icons[0]" />
           <Icon :class="classes[1]" :color="color[1]" :icon="icons[1]" />
