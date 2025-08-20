@@ -12,8 +12,8 @@ const name = computed(() => `${props.icon.meta.id}:${props.icon.icon}`)
 </script>
 
 <template>
-  <div class="p-4 rounded flex flex-col gap-4 ring ring-gray-300 items-start justify-center">
-    <div class="text-sm flex flex-col gap-2">
+  <div class="p-2 rounded flex flex-col gap-4 ring ring-gray-300 items-start justify-center">
+    <div class="flex flex-col gap-2">
       <div class="flex gap-2 items-center">
         icon: <Icon :icon="name" />
       </div>

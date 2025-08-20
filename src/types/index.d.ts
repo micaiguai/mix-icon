@@ -21,3 +21,8 @@ export interface IconMeta {
   meta: CollectionMeta
   icon: string
 }
+
+export interface Search {
+  query: string
+  license: string
+}

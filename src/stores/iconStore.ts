@@ -6,6 +6,7 @@ export const useIconStore = defineStore('iconStore', () => {
   const firstIcon = ref<IconMeta>()
   const secondIcon = ref<IconMeta>()
   const collectionMetas = ref<CollectionMeta[]>([])
+  const licenses = ref<Set<string>>(new Set())
 
   return {
     firstIcon,
@@ -19,6 +20,10 @@ export const useIconStore = defineStore('iconStore', () => {
     },
     setSecondIcon(icon: IconMeta) {
       secondIcon.value = icon
+    },
+    licenses,
+    addLicense(license: string) {
+      licenses.value.add(license)
     },
   }
 })

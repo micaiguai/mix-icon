@@ -8,12 +8,12 @@ import IconPanel from './IconPanel.vue'
 const iconStore = useIconStore()
 
 const color = ref<[string, string]>([
-  '#40BFB0',
+  '#41B883',
   '#317AC6',
 ])
 const classes = computed<[string, string]>(() => [
   `absolute left-0 top-0 text-60 text-[${color.value[0]}]`,
-  `absolute left-36 top-36 text-20 text-[${color.value[1]}]`,
+  `absolute right-0 bottom-0 text-30 text-[${color.value[1]}]`,
 ])
 
 const icons = computed(() => {
@@ -36,23 +36,31 @@ async function downloadPng() {
 </script>
 
 <template>
-  <div class="">
-    <div class="mb-2 flex gap-4">
-      <IconPanel v-if="iconStore.firstIcon" v-model:color="color[0]" :icon="iconStore.firstIcon" />
-      <IconPanel v-if="iconStore.secondIcon" v-model:color="color[1]" :icon="iconStore.secondIcon" />
+  <div class="flex flex-col w-full">
+    <div class="mb-2 flex gap-2 w-full">
+      <IconPanel
+        v-if="iconStore.firstIcon"
+        v-model:color="color[0]"
+        class="flex-1 flex-basis-[calc(50%-0.5rem)]"
+        :icon="iconStore.firstIcon"
+      />
+      <IconPanel
+        v-if="iconStore.secondIcon"
+        v-model:color="color[1]"
+        class="flex-1 flex-basis-[calc(50%-0.5rem)]"
+        :icon="iconStore.secondIcon"
+      />
     </div>
     <div class="mb-2 p-2 rounded ring ring-gray-300">
-      <div class="text-sm mb-2">
+      <div class="mb-2">
         Result
       </div>
-      <div class="w-fit ring ring-gray-300">
+      <div class="mb-2 w-fit ring ring-gray-300">
         <div ref="iconRef" class="size-60 relative">
           <Icon :class="classes[0]" :color="color[0]" :icon="icons[0]" />
           <Icon :class="classes[1]" :color="color[1]" :icon="icons[1]" />
         </div>
       </div>
-    </div>
-    <div class="">
       <button class="px-2 rounded cursor-pointer ring ring-gray-300" @click="downloadPng">
         download png
       </button>

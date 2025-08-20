@@ -28,12 +28,14 @@ function setIcon(icon: IconMeta) {
 </script>
 
 <template>
-  <div v-for="icon in icons" :key="icon.icon">
-    <Icon :icon="`${icon.meta.id}:${icon.icon}`" @click="setIcon(icon)" />
-  </div>
-  <div class="flex w-full">
-    <button v-if="!isMore" class="text-xs px-1 rounded cursor-pointer ring ring-gray-300" @click="isMore = true">
-      Load more
-    </button>
+  <div class="flex flex-wrap max-w-full">
+    <div v-for="icon in icons" :key="icon.icon" class="p-1 cursor-pointer hover:bg-gray-100" @click="setIcon(icon)">
+      <Icon :icon="`${icon.meta.id}:${icon.icon}`" />
+    </div>
+    <div class="mt-2 flex w-full">
+      <button v-if="!isMore" class="text-xs px-1 rounded cursor-pointer ring ring-gray-300 hover:bg-gray-100" @click="isMore = true">
+        Load more
+      </button>
+    </div>
   </div>
 </template>

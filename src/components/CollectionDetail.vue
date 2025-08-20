@@ -1,21 +1,24 @@
 <script setup lang="ts">
 import type { IconifyJSON } from 'iconify-icon'
-import type { CollectionMeta, IconMeta } from '../types'
+import type { CollectionMeta, IconMeta, Search } from '../types'
 import { addCollection } from 'iconify-icon'
 import { computed, ref } from 'vue'
+import { getBase } from '../../scripts/getBase'
 import Icons from './Icons.vue'
 
 const props = defineProps<{
   id: string
   index: number
-  search: string
+  search: Search
 }>()
+
+const base = getBase()
 
 const collection = ref<IconifyJSON>()
 const meta = ref<CollectionMeta>()
 
 async function getCollectionInfo(id: string) {
-  collection.value = await fetch(`/collections/${id}.json`)
+  collection.value = await fetch(`${base}/collections/${id}.json`)
     .then(res => res.json())
   if (!collection.value) {
     return
@@ -24,7 +27,7 @@ async function getCollectionInfo(id: string) {
 }
 
 async function getMeta(id: string) {
-  meta.value = await fetch(`/collections/${id}-meta.json`)
+  meta.value = await fetch(`${base}/collections/${id}-meta.json`)
     .then(res => res.json())
 }
 
@@ -38,9 +41,9 @@ const icons = computed(() => {
       meta: meta.value,
     }))
     .filter((icon) => {
-      if (!props.search)
+      if (!props.search.query)
         return true
-      return icon.icon.includes(props.search)
+      return icon.icon.includes(props.search.query)
     })
 })
 
@@ -49,7 +52,7 @@ getMeta(props.id)
 </script>
 
 <template>
-  <div class="min-w-80">
+  <div class="">
     {{ props.id }}
     <div class="text-xs mb-2">
       {{ meta?.license?.title }}

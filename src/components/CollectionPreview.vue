@@ -35,6 +35,8 @@ async function getMeta(id: string) {
     .then(res => res.json())
   if (!meta.value)
     return
+  if (meta.value.license?.title)
+    iconStore.addLicense(meta.value.license?.title)
   iconStore.setCollectionMetas([...iconStore.collectionMetas, meta.value])
 }
 
@@ -43,7 +45,7 @@ getMeta(props.id)
 </script>
 
 <template>
-  <div class="min-w-72">
+  <div class="p-2 rounded cursor-pointer ring ring-gray-300 hover:bg-gray-100">
     {{ props.id }}
     <div class="text-xs mb-2">
       {{ meta?.license?.title }}
