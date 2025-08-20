@@ -1,8 +1,9 @@
 {
   "name": "boilerplate",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
+  "description": "Mix a icon for your project.",
   "scripts": {
     "postinstall": "tsx scripts/prepare.ts",
     "dev": "vite",
