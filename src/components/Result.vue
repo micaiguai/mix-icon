@@ -8,7 +8,7 @@ import IconPanel from './IconPanel.vue'
 const iconStore = useIconStore()
 
 const color = ref<[string, string]>([
-  'black',
+  '#40BFB0',
   '#317AC6',
 ])
 const classes = computed<[string, string]>(() => [
@@ -28,10 +28,10 @@ const iconRef = ref<HTMLDivElement | null>(null)
 async function downloadPng() {
   if (!iconRef.value)
     return
-  const result = await snapdom(iconRef.value, {
-    filename: 'icon.png',
+  const result = await snapdom(iconRef.value)
+  result.download({
+    filename: 'icon',
   })
-  result.download()
 }
 </script>
 

@@ -1,4 +1,4 @@
-# Introduce
-![icon-maker](assets/icon.png)
+# Mix Icon
+![mix-icon](./assets/icon.png)
 
-Make a icon for your project.
+Mix a icon for your project.
