@@ -13,5 +13,7 @@ Mix a icon for your project.
 
 ## How to use
 <p align="center">
-  <video src='https://raw.githubusercontent.com/micaiguai/mix-icon/refs/heads/main/assets/preview.mp4'/>
+  <a href="https://raw.githubusercontent.com/micaiguai/mix-icon/refs/heads/main/assets/preview.gif">
+    <img src="https://raw.githubusercontent.com/micaiguai/mix-icon/refs/heads/main/assets/preview.gif"/>
+  </a>
 </p>
