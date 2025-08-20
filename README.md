@@ -1,8 +1,8 @@
 # Mix Icon
 
 <p align="center">
-  <a href="./assets/icon.png">
-    <img style="width: 240px;" src='./assets/icon.png'/>
+  <a href="https://raw.githubusercontent.com/micaiguai/mix-icon/refs/heads/main/assets/icon.png">
+    <img src="https://raw.githubusercontent.com/micaiguai/mix-icon/refs/heads/main/assets/icon.png/>
   </a>
 </p>
 
@@ -13,5 +13,5 @@ Mix a icon for your project.
 
 ## How to use
 <p align="center">
-  <video style="width: 320px; height: 240px;" src='./assets/preview.mp4'/>
+  <video src='https://raw.githubusercontent.com/micaiguai/mix-icon/refs/heads/main/assets/preview.mp4'/>
 </p>
